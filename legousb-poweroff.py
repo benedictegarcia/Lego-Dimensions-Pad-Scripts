@@ -20,6 +20,8 @@ CENTER_PAD = 1
 LEFT_PAD   = 2
 RIGHT_PAD  = 3
 
+# Init usb pad
+# Detects if available or not, thanks to usb library
 def init_usb():
     global dev
 
@@ -63,19 +65,23 @@ def switch_pad(pad, colour):
 
 
 def main():
+    # --
+    # Keywords references
+    # -- Pads
+    # ALL_PADS   = 0
+    # CENTER_PAD = 1
+    # LEFT_PAD   = 2
+    # RIGHT_PAD  = 3
+    # -- Colors 
+    # OFF   = [0,0,0]
+    # RED   = [255,0,0]
+    # GREEN = [0,255,0]
+    # BLUE  = [0,0,255]
+    # PURPLE = [255,0,255]
+    # LBLUE = [255,255,255]
+    # OLIVE = [128,128,0]
+
     init_usb()
-    switch_pad(ALL_PADS,RED)
-    sleep(0.5)
-    switch_pad(ALL_PADS,GREEN)
-    sleep(0.5)
-    switch_pad(ALL_PADS,BLUE)
-    sleep(0.5)
-    switch_pad(ALL_PADS,LBLUE)
-    sleep(0.5)
-    switch_pad(ALL_PADS,OLIVE)
-    sleep(0.5)
-    switch_pad(ALL_PADS,PURPLE)
-    sleep(1)
     switch_pad(ALL_PADS,OFF)
 
 if __name__ == '__main__':
