@@ -1,0 +1,11 @@
+[Unit]
+Description=Service for enlightment Lego Dimensions Pad
+After=multi-user.target
+ 
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /home/liloumuloup/projets/Lego-Dimensions-Pad-Scripts/service 
+Restart=on-abort
+ 
+[Install]
+WantedBy=multi-user.target
