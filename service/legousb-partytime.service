@@ -5,7 +5,9 @@ After=multi-user.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/python /home/pi/Lego-Dimensions-Pad-Scripts/legousb-partytime.py
+ExecStop=/usr/bin/python /home/pi/Lego-Dimensions-Pad-Scripts/legousb-poweroff.py
 Restart=on-abort
+RemainAfterExit=yes
  
 [Install]
 WantedBy=multi-user.target

@@ -82,6 +82,7 @@ def main():
     # OLIVE = [128,128,0]
 
     init_usb()
+    print 'poweroff pad'
     switch_pad(ALL_PADS,OFF)
 
 if __name__ == '__main__':
