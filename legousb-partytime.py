@@ -67,8 +67,7 @@ def switch_pad(pad, colour):
 
 def signal_term_handler(signal, frame):
     print 'got SIGTERM'
-    switch_pad(ALL_PADS,OFF)
-    sys.exit(0)
+    break #pour sortir de la boucle
 
 def main():
     # --
@@ -90,7 +89,8 @@ def main():
     init_usb()
     
     try:
-        while  not signal.signal(signal.SIGTERM, signal_term_handler):
+        signal.signal(signal.SIGTERM, signal_term_handler)
+        while 1:
             switch_pad(ALL_PADS,RED)
             sleep(0.2)
             switch_pad(CENTER_PAD,GREEN)
@@ -116,8 +116,10 @@ def main():
             sleep(0.2)
             switch_pad(ALL_PADS,PURPLE)
     except KeyboardInterrupt:
-      switch_pad(ALL_PADS,OFF)
- 
+       print 'kill me slowly'
+    finally:
+       switch_pad(ALL_PADS,OFF) #comme ça quand on est sorti de la boucle on passe par le quelque soit la raison pour laquelle on est sorti
+    
 
 if __name__ == '__main__':
     main()
