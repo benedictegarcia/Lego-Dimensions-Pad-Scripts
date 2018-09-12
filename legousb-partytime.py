@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# coding: utf-8
 
 # A python script to cycle all available colors the Lego USB Pad can create.
 import usb.core
@@ -67,7 +68,7 @@ def switch_pad(pad, colour):
 
 def signal_term_handler(signal, frame):
     print 'got SIGTERM'
-    break #pour sortir de la boucle
+    exit(0)
 
 def main():
     # --
@@ -90,7 +91,7 @@ def main():
     
     try:
         signal.signal(signal.SIGTERM, signal_term_handler)
-        while 1:
+        while True:
             switch_pad(ALL_PADS,RED)
             sleep(0.2)
             switch_pad(CENTER_PAD,GREEN)
@@ -116,9 +117,9 @@ def main():
             sleep(0.2)
             switch_pad(ALL_PADS,PURPLE)
     except KeyboardInterrupt:
-       print 'kill me slowly'
+       print 'interrupted'
     finally:
-       switch_pad(ALL_PADS,OFF) #comme ça quand on est sorti de la boucle on passe par le quelque soit la raison pour laquelle on est sorti
+       switch_pad(ALL_PADS,OFF)
     
 
 if __name__ == '__main__':
