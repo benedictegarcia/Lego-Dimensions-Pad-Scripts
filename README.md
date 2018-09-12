@@ -30,5 +30,4 @@ I will try to do it in a better way in future releases.
 - Better install scripts
 - Create cycles functions
 - Randomize cycles
-- Create interface to manage pad enlightment
-
+- Ansible all the things !
